@@ -1,0 +1,29 @@
+#+TITLE: sops-mode
+
+* About
+
+Oh hey there. :) This is my first mode for Emacs, so it's personal.
+
+* Install
+
+The mode is still very infant, so please just clone the repository and load it
+manually:
+
+#+begin_src elisp
+  (progn
+    (add-to-list 'load-path "~/repositories/gh/augustfengd/sops-mode")
+    (require 'sops-mode))
+#+end_src
+
+* Usage
+
+This is a minor mode that is loaded in json buffers. You can use the command:
+
+  - ~sops-encrypt~ (~C-c C-c~) to create a buffer with the encrypted content of
+    the current buffer
+  - ~sops-decrypt~ (~C-c C-d~) to decrypt a buffer with the decrypted content of
+    the current buffer
+
+/hint/: You may set the decryption key using environment variables like so:
+
+~M-x setenv~: ~SOPS_AGE_KEY~ _ENTER_ ~AGE-SECRET-KEY-1E0QSX7Y3X2QC4RNQATHWL48K3ZVQA7FLHXAPMFUK3G3U4PPTQ6NSDK995J~
