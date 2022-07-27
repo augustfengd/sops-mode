@@ -13,17 +13,17 @@
 ;; This package provides the ability to decrypt a sops secrets and some more in
 ;; the future.
 
-(defcustom sops-command
-  '("sops")
-  "sops command."
-  :type '(repeat string)
-  :group 'sops)
+(defcustom sops-executable
+  "sops"
+  "The sops executable."
+  :group 'sops
+  :type 'string)
 
 (defun sops-decrypt ()
   "decrypt sops file in current file."
   (interactive)
   (save-some-buffers (not compilation-ask-about-save))
-  (let ((cmd (car sops-command))
+  (let ((cmd sops-executable)
         (args (list "-d" (file-truename (buffer-file-name))))
         (output (get-buffer-create "*decrypted*")))
     (with-current-buffer output
@@ -40,7 +40,7 @@
   "encrypt file using sops."
   (interactive)
   (save-some-buffers (not compilation-ask-about-save))
-  (let ((cmd (car sops-command))
+  (let ((cmd sops-executable)
         (args (list "-e" (file-truename (buffer-file-name))))
         (output (get-buffer-create "*encrypted*")))
     (with-current-buffer output
