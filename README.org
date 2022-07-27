@@ -19,9 +19,9 @@ manually:
 
 This is a minor mode that is loaded in json buffers. You can use the command:
 
-  - ~sops-encrypt~ (~C-c C-c~) to create a buffer with the encrypted content of
+  - ~sops-encrypt-and-display~ (~C-c C-e~) to create a buffer with the encrypted content of
     the current buffer
-  - ~sops-decrypt~ (~C-c C-d~) to decrypt a buffer with the decrypted content of
+  - ~sops-decrypt-and-display~ (~C-c C-d~) to decrypt a buffer with the decrypted content of
     the current buffer
 
 /hint/: You may set the decryption key using environment variables like so:
